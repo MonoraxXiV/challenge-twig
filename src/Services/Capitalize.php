@@ -10,7 +10,7 @@ class Capitalize implements Transform
 {
     //https://stackoverflow.com/questions/7153801/how-to-capitalize-every-other-character-in-php
     //to dissect even more later
-    public function Transform(string $string)
+    public function Transform(string $string):string
     {
         // TODO: Implement Transform() method.
 
