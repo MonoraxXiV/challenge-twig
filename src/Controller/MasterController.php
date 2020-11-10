@@ -17,4 +17,15 @@ class LearningController extends AbstractController
             'controller_name' => 'LearningController',
         ]);
     }
+
+    /**
+     * @Route("/text", name="textTransform")
+     */
+    public function textTransform(){
+        return $this->render('learning/textTransform.html.twig', [
+            'controller_name' => 'LearningController',
+            ])
+       ;
+
+    }
 }
