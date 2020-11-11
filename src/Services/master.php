@@ -10,26 +10,28 @@ use App\Entity\Spaces;
 
 class master
 {
-    private string $message;
     private $logger;
-    Private $capitalizer;
+    Private $transformer;
 
     /**
      * master constructor.
      * @param string $message
      * @param $logger
-     * @param $capitalizer
+     * @param Transform $transformer
      */
-    public function __construct(string $message, Logger $logger, Capitalize $capitalizer)
+    public function __construct(Logger $logger, Transform $transformer)
     {
-        $this->message = $message;
+
         $this->logger = $logger;
-        $this->capitalizer = $capitalizer;
+        $this->transformer = $transformer;
     }
 
-    public function log(){
-        $this->logger->Logging($_POST['input']);
+    public function log($message){
+        $this->logger->Logging($message);
+        $message=$this->transformer->Transform($message);
+        return $message;
     }
+
 
 
 }
