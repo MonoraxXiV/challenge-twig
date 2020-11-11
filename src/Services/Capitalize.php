@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Entity;
+namespace App\Services;
 
 
 use App\Services\Transform;
@@ -14,17 +14,14 @@ class Capitalize implements Transform
     {
         // TODO: Implement Transform() method.
 
-        $test=preg_replace('/(\w)(.)?/e', "strtoupper('$1').strtolower('$2')", $_POST['input']);
-        return $test;
-        /*
-        $str = 'I made some research and found good answers here, they really helped me.';
-        $str = preg_replace_callback('/(\w)(.?)/', 'altcase', $str);
-        echo $str;
+        $str=$_POST['input'];
 
-        function altcase($m)
-        {
-            return strtoupper($m[1]) . $m[2];
+        var_dump($str);
+        foreach(str_split($str) as $index => $char) {
+            $str.= ($index % 2) ? strtolower($char) : strtoupper($char);
+            return $str;
         }
-        */
+
+
     }
 }
